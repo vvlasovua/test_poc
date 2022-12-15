@@ -18,14 +18,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
-Route::get("login-register", [SocialiteController::class, 'loginRegister']);
+Route::get("login-register", [SocialiteController::class, 'loginRegister'])->name('login-register');
 Route::get("redirect/{provider}", [SocialiteController::class, 'redirect'])->name('socialite.redirect');
 Route::get("callback/{provider}", [SocialiteController::class, 'callback'])->name('socialite.callback');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
-
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 });
