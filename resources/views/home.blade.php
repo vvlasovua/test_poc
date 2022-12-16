@@ -1,7 +1,7 @@
 <h1>HOME</h1>
 
 <div style="margin-bottom: 25px">
-{{json_encode($data)}}
+    @json($data)
 </div>
 
 <a href="{{ route('logout') }}">
